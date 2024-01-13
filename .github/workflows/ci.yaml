@@ -35,3 +35,5 @@ jobs:
         with:
           push: true
           tags: cfrdocarmo/ci-go-cfrdocarmo:latest
+
+          
