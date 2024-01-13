@@ -26,8 +26,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ DEV.DOCKERHUB_USERNAME }}
-          password: ${{ DEV.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
         id: docker_build
@@ -36,4 +36,4 @@ jobs:
           push: true
           tags: cfrdocarmo/ci-go-cfrdocarmo:latest
 
-          
+
