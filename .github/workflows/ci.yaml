@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - run: go test
+      - run: go test -coverprofile=coverage.out
       - run: go run math.go
 
       - name: Set up QEMU
@@ -35,5 +35,10 @@ jobs:
         with:
           push: true
           tags: cfrdocarmo/ci-go-cfrdocarmo:latest
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 
